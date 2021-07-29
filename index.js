@@ -38,7 +38,8 @@ app.use('/peerjs', peerServer)
 app.set('view engine', 'ejs')
 app.set("views", __dirname + "/views");
 //app.set("public", __dirname + "/public");
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(__dirname + "/public"));
 
 server.listen(port, () => {
     console.log('listening on *:' + port);
