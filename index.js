@@ -49,11 +49,8 @@ server.listen(port, () => {
  * ルーティング
  ***************************************************************
  */
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
-app.get('/aice', (req, res) => {
+app.get('/', (req, res) => {
     // res.render('view/client');
     // res.sendFile(__dirname + "/views/index_aiforus.html");
     res.render("./client.ejs");
