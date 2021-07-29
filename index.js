@@ -37,8 +37,8 @@ app.use('/peerjs', peerServer)
 // EJS、ファイルアクセス
 app.set('view engine', 'ejs')
 app.set("views", __dirname + "/views");
-app.set("public", __dirname + "/public");
-//app.use(express.static('public'));
+//app.set("public", __dirname + "/public");
+app.use(express.static('public'));
 
 server.listen(port, () => {
     console.log('listening on *:' + port);
