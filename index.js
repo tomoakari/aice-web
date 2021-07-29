@@ -102,7 +102,7 @@ io.on('connection', (socket) => {
         if (index !== -1) rooms.splice(index, 1)
         if (room) {
             io.to(room.roomId).emit('message', `Bot :${room.name}が退出しました。`)
-            socket.to(room.roomId).broadcast.emit('user-disconnected', room.peerId)
+            socket.broadcast.to(room.roomId).emit('user-disconnected', room.peerId)
             const members = rooms.filter(rm => rm.roomId == room.roomId);
             io.to(room.roomId).emit('members', members);
         }
