@@ -38,7 +38,7 @@ const app = Vue.createApp({
             this.roomId = roomId;
             this.myPeer = new Peer(undefined, {
                 host: '/',
-                port: 3000,
+                port: 8446,
                 path: '/peerjs',
                 debug: 3
             });
