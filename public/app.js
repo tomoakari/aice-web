@@ -19,11 +19,11 @@ const app = Vue.createApp({
         }
     },
     created() {
+    },
+    mounted() {
         this.name = document.getElementById("un").value
         this.roomId = document.getElementById("ri").value
         this.joinRoom()
-    },
-    mounted() {
         socket.on('message', (msg) => {
             this.messages.push(msg)
         });
