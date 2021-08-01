@@ -19,7 +19,7 @@ const app = Vue.createApp({
         }
     },
     created() {
-        joinRoom()
+        this.joinRoom()
     },
     mounted() {
         socket.on('message', (msg) => {
