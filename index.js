@@ -36,6 +36,10 @@ const { ExpressPeerServer } = require('peer');
 
 const peerServer = ExpressPeerServer(server, {
     debug: true,
+    cors: {
+        origin: '*',
+        methods: ["GET", "POST"]
+    }
 })
 
 app.use('/peerjs', peerServer)
