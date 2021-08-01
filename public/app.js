@@ -19,6 +19,7 @@ const app = Vue.createApp({
         }
     },
     created() {
+        joinRoom()
     },
     mounted() {
         socket.on('message', (msg) => {
@@ -28,14 +29,14 @@ const app = Vue.createApp({
             this.members = members;
         });
         this.setVideo()
+
     },
     methods: {
         sendMessage() {
             socket.emit('message', this.message)
             this.message = ''
         },
-        joinRoom(roomId) {
-            this.roomId = roomId;
+        joinRoom() {
             this.myPeer = new Peer(undefined, {
                 host: '/',
                 port: 8446,

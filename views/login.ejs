@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>AICE meeting</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+  <div id="app">
+    <h1 id="title">AICE CLOUDミーティング</h1>
+    <div id="join" v-show="!roomId">
+      <div style="width:25%">
+        <h2>ルームの選択</h2>
+        
+        <div>
+          <form method="post" action="/" class="">
+            <p>
+              <input name="name" placeholder="ユーザ名を入力してください" required />
+            </p>
+            <p>
+              <input name="room_id" placeholder="ルーム名を入力してください" required value="room1" />
+            </p>
+            <button class="btn">ログイン</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="/socket.io/socket.io.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"
+    integrity="sha512-4wTQ8feow93K3qVGVXUGLULDB9eAULiG+xdbaQH8tYZlXxYv9ij+evblXD0EOqmGWT8NBTd1vQGsURvrQzmKeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="/app.js" defer></script>
+
+</body>
+</html>

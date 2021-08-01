@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id="app">
-    <h1 id="title">AICE CLOUDミーティング</h1>
+    <h1 id="title">
+        AICE CLOUDミーティング <input v-model="name" placeholder="ユーザ名" value="<%- name %>"/><input v-model="roomId" placeholder="ルーム名" value="<%- roomid %>" /></h1>
     <div id="join" v-show="!roomId">
       <div style="width:25%">
         <h2>ルームの選択</h2>

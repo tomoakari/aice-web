@@ -58,9 +58,18 @@ server.listen(port, () => {
  */
 
 app.get('/', (req, res) => {
-    // res.render('view/client');
-    // res.sendFile(__dirname + "/views/index_aiforus.html");
-    res.render("./client.ejs");
+    res.render("./rogin.ejs");
+});
+
+/**
+ * 会議室ページ
+ */
+app.post("/", async (request, response) => {
+    var data = {
+        user_name: request.body.name,
+        room_id: request.body.roomid,
+    };
+    res.render("./client.ejs", data);
 });
 
 
