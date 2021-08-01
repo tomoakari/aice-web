@@ -47,6 +47,7 @@ app.set("views", __dirname + "/views");
 //app.use(express.static('public'));
 app.use(express.static(__dirname + "/public"));
 
+
 // POSTにも対応
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
