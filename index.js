@@ -28,13 +28,11 @@ const io = require('socket.io')(server, {
     }
 });
 
-/*
-const server = require('http').createServer(app);
-const io = require('socket.io')(server)
-*/
+// Peerサーバ
+const pserver = require('http').createServer(app);
 const { ExpressPeerServer } = require('peer');
 
-const peerServer = ExpressPeerServer(server, {
+const peerServer = ExpressPeerServer(pserver, {
     debug: true,
     cors: {
         origin: '*',
