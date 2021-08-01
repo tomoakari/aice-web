@@ -44,6 +44,7 @@ const app = Vue.createApp({
             });
             socket.open();
             this.myPeer.on('open', peerId => {
+                console.log("PEER OPEN!!!")
                 socket.emit('join-room', this.roomId, this.name, peerId);
             })
         },
@@ -89,6 +90,7 @@ const app = Vue.createApp({
                 this.$refs.video.append(this.myVideo)
 
                 this.myPeer.on('call', call => {
+                    console.log("PEER ON CALL !!!");
                     const video = document.createElement('video')
                     videos.push({
                         video: video,
@@ -97,6 +99,7 @@ const app = Vue.createApp({
                     call.answer(stream);
 
                     call.on('stream', stream => {
+                        console.log("PEER ON STREAM !!!");
                         video.srcObject = stream;
                         video.play()
                         this.$refs.video.append(video)
@@ -109,6 +112,7 @@ const app = Vue.createApp({
                 });
 
                 socket.on('user-connected', (peerId) => {
+                    console.log("USER CONNECTED !!!");
                     const call = this.myPeer.call(peerId, stream)
                     const video = document.createElement('video')
                     videos.push({
