@@ -17,6 +17,9 @@ const express = require('express')
 const app = express()
 
 
+const cors = require('cors')
+app.use(cors())
+
 const server = require('https').createServer(options, app);
 const io = require('socket.io')(server, {
     cors: {
@@ -30,9 +33,6 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server)
 */
 const { ExpressPeerServer } = require('peer');
-
-// const cors = require('cors')
-// app.use(cors())
 
 const peerServer = ExpressPeerServer(server, {
     debug: true,
