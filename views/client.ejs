@@ -9,20 +9,8 @@
 <body>
   <div id="app">
     <h1 id="title">
-        AICE CLOUDミーティング <input v-model="name" placeholder="ユーザ名" value="<%- user_name %>"/><input v-model="roomId" placeholder="ルーム名" value="<%- room_id %>" /></h1>
-    <div id="join" v-show="!roomId">
-      <div style="width:25%">
-        <h2>ルームの選択</h2>
-        <div>
-          <input v-model="name" placeholder="ユーザ名を入力してください" required />
-        </div>
-        <div>
-          <button @click="joinRoom('room_1')" class="btn">Room 1</button>
-          <button @click="joinRoom('room_2')" class="btn">Room 2</button>
-        </div>
-      </div>
-    </div>
-    <div id="container"v-show="roomId">
+        AICE CLOUDミーティング <input ref="ur" value="<%- user_name %>"/><input ref="ri" value="<%- room_id %>" /></h1>
+    <div id="container">
       <div id="main">
         <div id="video" ref="video">
         </div>
