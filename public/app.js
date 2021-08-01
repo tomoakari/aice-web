@@ -11,7 +11,7 @@ const app = Vue.createApp({
             name: '',
             roomId: '',
             members: [],
-            myPeer: new Peer(),
+            myPeer: '',
             myVideo: '',
             onVideo: true,
             onMute: false,
