@@ -19,8 +19,8 @@ const app = Vue.createApp({
         }
     },
     created() {
-        this.name = this.$refs.un.value
-        this.roomId = this.$refs.ri.value
+        this.name = document.getElementById("un").value
+        this.roomId = document.getElementById("ri").value
         this.joinRoom()
     },
     mounted() {
