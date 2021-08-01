@@ -9,7 +9,7 @@
 <body>
   <div id="app">
     <h1 id="title">AICE CLOUDミーティング</h1>
-    <div id="join" v-if="!roomId">
+    <div id="join" v-show="!roomId">
       <div style="width:25%">
         <h2>ルームの選択</h2>
         <div>
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div id="container" v-else>
+    <div id="container"v-show="roomId">
       <div id="main">
         <div id="video" ref="video">
         </div>
