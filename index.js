@@ -66,8 +66,8 @@ app.get('/', (req, res) => {
  */
 app.post("/", async (request, response) => {
     var data = {
-        user_name: request.body.name,
-        room_id: request.body.roomid,
+        user_name: request.body.user_name,
+        room_id: request.body.room_id,
     };
     res.render("./client.ejs", data);
 });
