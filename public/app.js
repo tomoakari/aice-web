@@ -19,7 +19,6 @@ const app = Vue.createApp({
         }
     },
     created() {
-
         this.name = this.$refs.un.value
         this.roomId = this.$refs.ri.value
         this.joinRoom()
