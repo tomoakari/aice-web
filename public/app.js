@@ -24,12 +24,20 @@ const app = Vue.createApp({
         this.name = document.getElementById("un").value
         this.roomId = document.getElementById("ri").value
         this.joinRoom()
+
         socket.on('message', (msg) => {
             this.messages.push(msg)
         });
+
         socket.on('members', (members) => {
             this.members = members;
         });
+
+        socket.on('user-disconnected', (peerId) => {
+            const video = videos.find(video => video.peerId == peerId)
+            if (video) video.video.remove();
+        });
+
         this.setVideo()
 
     },

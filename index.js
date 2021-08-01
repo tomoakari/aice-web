@@ -21,6 +21,7 @@ const server = require('https').createServer(options, app);
 const io = require('socket.io')(server, {
     cors: {
         origin: '*',
+        methods: ["GET", "POST"]
     }
 });
 
@@ -96,11 +97,6 @@ io.on('connection', (socket) => {
         if (room) io.to(room.roomId).emit('message', `${room.name}: ${msg}`)
     })
 
-    socket.on('disconnect', () => {
-        io.emit('message', 'ユーザからの接続が切れました。')
-    });
-
-
     socket.on('join-room', (roomId, name, peerId) => {
         rooms.push({
             roomId,
@@ -128,4 +124,5 @@ io.on('connection', (socket) => {
             io.to(room.roomId).emit('members', members);
         }
     });
+
 });
