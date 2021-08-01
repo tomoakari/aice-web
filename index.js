@@ -70,10 +70,10 @@ app.get('/', (req, res) => {
 /**
  * 会議室ページ
  */
-app.post("/", async (request, response) => {
+app.post("/", (req, res) => {
     var data = {
-        user_name: request.body.user_name,
-        room_id: request.body.room_id,
+        user_name: req.body.user_name,
+        room_id: req.body.room_id,
     };
     res.render("./client.ejs", data);
 });
