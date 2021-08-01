@@ -58,7 +58,7 @@ server.listen(port, () => {
  */
 
 app.get('/', (req, res) => {
-    res.render("./rogin.ejs");
+    res.render("./login.ejs");
 });
 
 /**
