@@ -16,24 +16,22 @@ var options = {
 const express = require('express')
 const app = express()
 
-/*
-const server = require('https').createServer(options, app); // 一旦消してみる
+
+const server = require('https').createServer(options, app);
 const io = require('socket.io')(server, {
     cors: {
         origin: '*',
     }
 });
-*/
 
+/*
 const server = require('http').createServer(app);
 const io = require('socket.io')(server)
-
+*/
 const { ExpressPeerServer } = require('peer');
-//const port = 3000
 
 // const cors = require('cors')
 // app.use(cors())
-
 
 const peerServer = ExpressPeerServer(server, {
     debug: true,
