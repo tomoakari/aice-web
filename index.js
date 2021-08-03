@@ -94,11 +94,13 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('message', '新しいユーザが接続されました。');
 
     socket.on('message', (msg) => {
+        console.log("msg:" + msg)
         const room = rooms.find(room => room.id == socket.id)
         if (room) io.to(room.roomId).emit('message', `${room.name}: ${msg}`)
     })
 
     socket.on('join-room', (roomId, name, peerId) => {
+        console.log('join-room:' + roomId + '_' + name + '_' + peerId)
         rooms.push({
             roomId,
             name,
