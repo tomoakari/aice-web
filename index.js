@@ -109,8 +109,8 @@ io.on('connection', (socket) => {
         })
         socket.join(roomId);
         console.log("roomId:" + roomId)
-        socket.emit('message', `Bot: ${name}さん、Zoomクローンにようこそ!`);
-        socket.broadcast.to(roomId).emit('message', `Bot: ${name}さんが接続しました。`)
+        socket.emit('message', `${name}さん、AICE CLOUD へようこそ`);
+        socket.broadcast.to(roomId).emit('message', `${name}さんが接続しました。`)
         socket.broadcast.to(roomId).emit('user-connected', peerId, socket.id)
         const members = rooms.filter(room => room.roomId == roomId);
         io.to(roomId).emit('members', members);
