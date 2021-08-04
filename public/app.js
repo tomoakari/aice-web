@@ -92,8 +92,13 @@ const app = Vue.createApp({
             this.myVideo.muted = true
 
             navigator.mediaDevices.getUserMedia({
-                video: true,
-                audio: false,
+                video: {
+                    width: 320,
+                    height: 240,
+                    frameRate: { ideal: 10, max: 15 },
+                    aspectRatio: { ideal: 1.333 },
+                },
+                audio: true,
             }).then(stream => {
                 this.myStream = stream;
                 this.myVideo.srcObject = this.myStream;
