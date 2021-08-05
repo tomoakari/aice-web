@@ -90,8 +90,8 @@ app.post("/", (req, res) => {
 const rooms = []
 io.on('connection', (socket) => {
     console.log('a user connected');
-    socket.emit('message', 'ログインしました');
-    socket.broadcast.emit('message', '新しいユーザが接続されました。');
+    socket.emit('message', 'ソケットサーバに接続しました');
+    // socket.broadcast.emit('message', '新しいユーザが接続されました。');
 
     socket.on('message', (msg) => {
         console.log("msg:" + msg)
@@ -110,7 +110,7 @@ io.on('connection', (socket) => {
         socket.join(roomId);
         console.log("roomId:" + roomId)
         socket.emit('message', `${name}さん、AICE CLOUD へようこそ`);
-        socket.broadcast.to(roomId).emit('message', `${name}さんが接続しました。`)
+        socket.broadcast.to(roomId).emit('message', `${name}さんが${roomId}に入室しました。`)
         socket.broadcast.to(roomId).emit('user-connected', peerId, socket.id)
         const members = rooms.filter(room => room.roomId == roomId);
         io.to(roomId).emit('members', members);
