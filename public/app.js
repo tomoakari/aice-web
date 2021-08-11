@@ -102,7 +102,8 @@ const app = Vue.createApp({
             }).then(stream => {
                 this.myStream = stream;
                 this.myVideo.srcObject = this.myStream;
-                setTimeout(() => this.myVideo.play(), 1500);
+                //setTimeout(() => this.myVideo.play(), 1500);
+                his.myVideo.play()
                 this.$refs.video.append(this.myVideo)
 
                 this.myPeer.on('call', call => {
@@ -117,7 +118,8 @@ const app = Vue.createApp({
                     call.on('stream', stream => {
                         console.log("PEER ON STREAM !!!");
                         video.srcObject = stream;
-                        setTimeout(() => video.play(), 1500);
+                        //setTimeout(() => video.play(), 1500);
+                        video.play()
                         this.$refs.video.append(video)
                     });
 
@@ -137,7 +139,8 @@ const app = Vue.createApp({
                     });
                     call.on('stream', stream => {
                         video.srcObject = stream;
-                        setTimeout(() => video.play(), 1500);
+                        //setTimeout(() => video.play(), 1500);
+                        video.play()
                         this.$refs.video.append(video)
                     });
                     //callした方が退室する際に実行
