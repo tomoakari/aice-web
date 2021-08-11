@@ -103,7 +103,7 @@ const app = Vue.createApp({
                 this.myStream = stream;
                 this.myVideo.srcObject = this.myStream;
                 //setTimeout(() => this.myVideo.play(), 1500);
-                his.myVideo.play()
+                this.myVideo.play()
                 this.$refs.video.append(this.myVideo)
 
                 this.myPeer.on('call', call => {
