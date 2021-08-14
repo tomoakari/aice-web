@@ -1,78 +1,78 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>AICE meeting</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
+
 <body>
   <div id="app">
     <h1 id="title">
-        AICE CLOUDミーティング <input type="text" id="un" value="<%- user_name %>"/><input type="text" id="ri" value="<%- room_id %>" /></h1>
+      AICE CLOUDミーティング <input type="text" id="un" value="<%- user_name %>" /><input type="text" id="ri"
+        value="<%- room_id %>" /></h1>
     <div id="container">
       <div id="main">
         <div id="video" ref="video">
         </div>
         <div id="menu">
-        <div style="display: flex;">
+          <div style="display: flex;">
             <div class="menu_item">
-                <div>
-                    <i class="fa fa-2x fa-microphone" @click="stopAudio" v-show="!onMute"></i>
-                    <i class="fa fa-2x fa-microphone-slash" @click="startAudio" v-show="onMute"></i>
-                </div>
-                <div>
-                    <span v-if="!onMute">ミュート</span>
-                    <span v-else>アンミュート</span>
-                </div>
+              <div>
+                <i class="fa fa-2x fa-microphone" @click="stopAudio" v-show="!onMute"></i>
+                <i class="fa fa-2x fa-microphone-slash" @click="startAudio" v-show="onMute"></i>
+              </div>
+              <div>
+                <span v-if="!onMute">ミュート</span>
+                <span v-else>アンミュート</span>
+              </div>
             </div>
             <div class="menu_item">
-                <div>
-                    <i class="fa fa-2x fa-video" @click="stopVideo" v-show="onVideo"></i>
-                    <i class="fa fa-2x fa-video-slash" @click="startVideo" v-show="!onVideo"></i>
-                </div>
-                <div>
-                    <span v-if="onVideo">ビデオの停止</span>
-                    <span v-else>ビデオの開始</span>
-                </div>
+              <div>
+                <i class="fa fa-2x fa-video" @click="stopVideo" v-show="onVideo"></i>
+                <i class="fa fa-2x fa-video-slash" @click="startVideo" v-show="!onVideo"></i>
+              </div>
+              <div>
+                <span v-if="onVideo">ビデオの停止</span>
+                <span v-else>ビデオの開始</span>
+              </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
       <div id="sub">
         <div id="paticipate">
-            <p class="sub_list">参加者</p>
-              <div class="message_wrap">
-                <p v-for="(member,index) in members" :key="index">{{ member.name }}</p>
-              </div>
+          <p class="sub_list">参加者</p>
+          <div class="message_wrap">
+            <p v-for="(member,index) in members" :key="index">{{ member.name }}</p>
           </div>
+        </div>
         <div id="chat">
           <p class="sub_list">チャット</p>
           <div class="message_wrap">
             <p v-for="(message,index) in messages" :key="index">{{ message }}</p>
           </div>
+          <div>
             <div>
-              <div>
-                <textarea
-                  class="text_area"
-                  placeholder="メッセージを入力します"
-                  v-model="message"
-                  ></textarea>
-              </div>
-              <div>
-                <button class="btn" @click="sendMessage">メッセージ送信</button>
-              </div>
+              <textarea class="text_area" placeholder="メッセージを入力します" v-model="message"></textarea>
             </div>
+            <div>
+              <button class="btn" @click="sendMessage">メッセージ送信</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <script src="https://unpkg.com/vue@next" defer></script>
   <script src="/socket.io/socket.io.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.1/peerjs.min.js"
     integrity="sha512-4wTQ8feow93K3qVGVXUGLULDB9eAULiG+xdbaQH8tYZlXxYv9ij+evblXD0EOqmGWT8NBTd1vQGsURvrQzmKeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <script src="/app.js" defer></script>
 
 </body>
+
 </html>

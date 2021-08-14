@@ -130,7 +130,7 @@ const app = Vue.createApp({
                 });
 
                 socket.on('user-connected', (peerId) => {
-                    console.log("USER CONNECTED !!!");
+                    console.log("USER CONNECTED !!! (peerId:" + peerId + ")");
                     const call = this.myPeer.call(peerId, stream)
                     const video = document.createElement('video')
                     videos.push({
